@@ -1,0 +1,16 @@
+version: '3'
+services:
+  adguard:
+    image: adguard/adguardhome
+    container_name: adguard
+    ports:
+      - "3000:3000"
+      - "53:53/udp"
+    volumes:
+      - ./data:/opt/adguardhome/conf
+    networks:
+      - homelab_net
+
+networks:
+  homelab_net:
+    external: true
